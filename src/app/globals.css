@@ -3,3 +3,15 @@
 @import "@heroui/styles"; 
 
 
+.banner-img-container {
+    height: 365px;
+    margin: auto; 
+   margin-top: 80px;
+    border-radius: 20px; 
+    overflow: hidden; 
+}
+
+
+.banner-img {
+    object-fit: contain; 
+}
