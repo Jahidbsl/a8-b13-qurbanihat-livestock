@@ -44,21 +44,11 @@ const BookingModal = ({ status }) => {
 
   return (
     <>
-    {/* Trigger Button */}
 <button
-  // 1. Status 'Available' na hole button kaj korbe na, tai check korun
-  disabled={status !== "Available"} 
-  
-  // 2. Click korle jate isOpen true hoy
-  onClick={() => setIsOpen(true)} 
-  
-  className={`flex-1 px-8 py-4 rounded-2xl font-bold transition-all shadow-lg ${
-    status === "Available"
-      ? "bg-green-600 text-white hover:bg-green-700 active:scale-95"
-      : "bg-gray-400 text-gray-200 cursor-not-allowed"
-  }`}
+  onClick={() => setIsOpen(true)}
+  className="bg-green-600 text-white px-8 py-4 rounded-2xl font-bold"
 >
-  {status === "Available" ? "Booking" : "Already Booked"}
+  Booking
 </button>
 
       {/* Modal Overlay */}
