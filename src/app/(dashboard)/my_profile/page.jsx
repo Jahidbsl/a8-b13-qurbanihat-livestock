@@ -64,7 +64,7 @@ const MyProfilePage = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 mb-10">
             <div className="flex flex-col items-center">
                
                 <div className="relative w-32 h-32 mb-4">
