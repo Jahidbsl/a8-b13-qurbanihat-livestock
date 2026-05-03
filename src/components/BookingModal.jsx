@@ -1,4 +1,4 @@
-"use client";
+"use client"; 
 
 import React, { useState } from "react";
 import { 
@@ -14,7 +14,7 @@ import {
   Toast
 } from "@heroui/react";
 import { Rocket } from "@gravity-ui/icons";
-import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 
 const BookingModal = ({ status }) => {
@@ -33,10 +33,10 @@ const BookingModal = ({ status }) => {
       console.log("Booking Data:", payload);
       await new Promise((resolve) => setTimeout(resolve, 1000)); 
 
-      ToastContainer.success("Booking confirmed successfully!");
+      Toast.success("Booking confirmed successfully!");
       onClose(); 
     } catch (error) {
-      Toast.error("Failed to confirm booking.");
+      toast.error("Failed to confirm booking.");
     } finally {
       setLoading(false);
     }
