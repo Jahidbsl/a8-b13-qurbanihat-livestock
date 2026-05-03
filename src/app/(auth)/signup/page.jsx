@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check } from "@gravity-ui/icons";
+import { Check, Eye, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
   Form,
@@ -9,6 +9,7 @@ import {
   Label,
   TextField,
   FieldError,
+  InputGroup,
 } from "@heroui/react";
 
 import Link from "next/link";
@@ -16,6 +17,8 @@ import { authClient } from "@/lib/auth-client";
 
 export default function SignUpPage() {
   const [userImage, setUserImage] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
+  const [password, setPassword] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -87,19 +90,27 @@ export default function SignUpPage() {
         </TextField>
 
         {/* Password */}
-        <TextField
-          isRequired
-          name="password"
-          type="password"
-          validate={(value) => {
-            if (value.length < 8) return "Min 8 characters required";
-            if (!/[A-Z]/.test(value)) return "Need one uppercase letter";
-            return null;
-          }}
-        >
+        <TextField className="w-full" name="password">
           <Label>Password</Label>
-          <Input placeholder="Create a strong password" />
-          <FieldError />
+          <InputGroup>
+            <InputGroup.Input
+              className="w-full"
+              type={isVisible ? "text" : "password"}
+              value={password}
+              placeholder="Enter Your Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <InputGroup.Suffix className="pr-0">
+              <Button
+                isIconOnly
+                size="sm"
+                variant="ghost"
+                onPress={() => setIsVisible(!isVisible)}
+              >
+                {isVisible ? <Eye /> : <EyeSlash />}
+              </Button>
+            </InputGroup.Suffix>
+          </InputGroup>
         </TextField>
 
         {/*  Image  */}
@@ -155,7 +166,7 @@ export default function SignUpPage() {
         <p className="text-center text-sm text-gray-500 mt-2">
           Already have an account?{" "}
           <Link
-            href="/login"
+            href="/signin"
             className="text-green-600 font-semibold underline"
           >
             Sign In
