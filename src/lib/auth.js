@@ -6,31 +6,23 @@ const client = new MongoClient(process.env.MONGO_URI);
 
 const db = client.db("qurbanihut");
 
+
 export const auth = betterAuth({
-  database: mongodbAdapter(db),
-
-  baseURL: process.env.BETTER_AUTH_URL,
-
-  trustedOrigins: [
-    "https://a8-b13-qurbanihat-livestock.vercel.app",
-   
-  ],
-
-  emailAndPassword: {
+ emailAndPassword: {
     enabled: true,
 
     autoSignIn: true,
   },
 
-  socialProviders: {
+   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     },
   },
 
-  session: {
-    expiresIn: 60 * 60 * 24 * 7,
-    updateAge: 60 * 60 * 24,
-  },
+  database: mongodbAdapter(db, {
+    // Optional: if you don't provide a client, database transactions won't be enabled.
+    client
+  }),
 });
