@@ -2,10 +2,8 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { auth } from "./lib/auth";
 
-export async function middleware(request) {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+export async function proxy(request) {
+ return NextResponse.next();
 
   if (!session) {
     const url = request.nextUrl;
