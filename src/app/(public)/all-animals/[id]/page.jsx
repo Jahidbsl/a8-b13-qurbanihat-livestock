@@ -11,14 +11,11 @@ import {
   DollarSign,
   PawPrint,
 } from "lucide-react";
-
-
+import BookingModal from "@/components/BookingModal";
 
 const AnimalDetails = async ({ params }) => {
   const { id } = await params;
   const animal = await getAllAnimalData(id);
-
-
 
   if (!animal || animal.length === 0) {
     return (
@@ -162,16 +159,7 @@ const AnimalDetails = async ({ params }) => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-            <button
-              disabled={status !== "Available"}
-              className={`flex-1 px-8 py-4 rounded-2xl font-bold transition-all shadow-lg ${
-                status === "Available"
-                  ? "bg-green-600 text-white hover:bg-green-700"
-                  : "bg-gray-400 text-gray-200 cursor-not-allowed"
-              }`}
-            >
-              {status === "Available" ? "Booking" : "Already Booked"}
-            </button>
+            <BookingModal></BookingModal>
             <button className="flex-1 bg-gray-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-black transition-all active:scale-95 shadow-lg">
               Add to Wishlist
             </button>
