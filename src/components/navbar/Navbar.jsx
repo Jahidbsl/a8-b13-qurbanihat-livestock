@@ -165,6 +165,14 @@ const Navbar = () => {
               All Animals
             </Link>
           </li>
+              <li>
+               <Link
+              href="/my_profile"
+              className={`text-md font-semibold transition-colors no-underline ${isActive("/my_profile") ? "text-emerald-600" : "text-gray-600 hover:text-emerald-500"}`}
+            >
+              My Profile
+            </Link>
+          </li>
 
        
 
