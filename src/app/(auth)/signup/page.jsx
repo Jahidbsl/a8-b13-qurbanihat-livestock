@@ -45,7 +45,7 @@ const onSubmit = async (e) => {
       password: Alldata.password,
       name: Alldata.fullName,
       image: userImage,
-      callbackURL: "/signin",
+      callbackURL: "/",
     });
 
     if (error) {
@@ -62,7 +62,6 @@ const onSubmit = async (e) => {
       
       toast.success(`Registration Successful for: ${Alldata.fullName}`, {
         position: "top-center",
-        autoClose: 5000,
         theme: "light",
         transition: Bounce,
       });

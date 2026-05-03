@@ -68,8 +68,6 @@ export default function SignInPage() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50/50 px-4">
        <ToastContainer 
-          position="top-right"
-          autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
