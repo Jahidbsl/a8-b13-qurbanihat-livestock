@@ -119,7 +119,7 @@ const Navbar = () => {
                 />
               </div>
               <button
-               onClick={() => signOut({ callbackUrl: '/' })}
+                onClick={async () => await authClient.signOut()}
                 className="hidden sm:block text-sm bg-gray-50 text-gray-600 hover:bg-red-50 hover:text-red-600 px-4 py-2 rounded-full font-semibold transition-all border border-transparent hover:border-red-100"
               >
                 Logout
