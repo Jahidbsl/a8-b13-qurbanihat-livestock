@@ -25,8 +25,7 @@ const BookingModal = ({ status }) => {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      console.log("Booking Data:", payload);
-      // Simulate API call
+     
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success("Booking confirmed successfully!", {
@@ -51,10 +50,10 @@ const BookingModal = ({ status }) => {
   Booking
 </button>
 
-      {/* Modal Overlay */}
+    
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop */}
+         
           <div 
             className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
             onClick={() => setIsOpen(false)}

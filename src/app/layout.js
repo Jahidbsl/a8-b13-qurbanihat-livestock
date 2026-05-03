@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -31,6 +32,18 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
        <Navbar></Navbar>
         <main>{children}</main>
+        <ToastContainer 
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <Footer></Footer>
       </body>
     </html>
