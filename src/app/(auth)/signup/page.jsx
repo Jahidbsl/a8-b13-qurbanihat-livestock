@@ -46,6 +46,7 @@ export default function SignUpPage() {
         password: Alldata.password,
         name: Alldata.fullName,
         image: userImage,
+        autoSignIn: false,
         callbackURL: "/",
       });
 
@@ -69,7 +70,7 @@ export default function SignUpPage() {
         e.target.reset();
 
         setTimeout(() => {
-          router.push("/");
+          router.push("/signin");
           router.refresh();
         }, 1500);
       }
