@@ -15,7 +15,8 @@ import {
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { toast, Bounce, ToastContainer } from "react-toastify";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
 
 export default function SignUpPage() {
   const router = useRouter();
