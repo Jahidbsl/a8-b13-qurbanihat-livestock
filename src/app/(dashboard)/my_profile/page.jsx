@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import { authClient } from '@/lib/auth-client';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
