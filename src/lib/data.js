@@ -2,7 +2,7 @@
 export const getAllAnimalData = async (id) => {
   try {
    
-    const response = await fetch('data.json', {
+    const response = await fetch('https://a8-b13-qurbanihat-livestock.vercel.app/data.json', {
         cache: 'no-store' 
     });
 
