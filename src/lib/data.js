@@ -1,28 +1,14 @@
-// lib/data.js
+import { promises as fs } from 'fs';
+import path from 'path';
+
 export const getAllAnimalData = async (id) => {
-  try {
-   
-    const response = await fetch('https://a8-b13-qurbanihat-livestock.vercel.app/data.json', {
-        cache: 'no-store' 
-    });
+ 
+  const filePath = path.join(process.cwd(), 'public', 'data.json');
+  const fileContents = await fs.readFile(filePath, 'utf8');
+  const allAnimals = JSON.parse(fileContents);
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const allAnimals = await response.json();
-
-   
-    if (id) {
-      const animal = allAnimals.find(animal => animal.id === Number(id));
-      return animal || null; 
-    }
-
-   
-    return allAnimals;
-    
-  } catch (error) {
-    console.error("Fetch error:", error);
-    return id ? null : []; 
+  if (id) {
+    return allAnimals.find(a => String(a.id) === String(id)) || null;
   }
+  return allAnimals;
 };
