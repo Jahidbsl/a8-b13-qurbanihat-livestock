@@ -1,21 +1,18 @@
-"use client"; 
+"use client";
 
 import React, { useState } from "react";
-import { 
-  Button, 
-  Modal, 
-  Input, 
-  Textarea, 
-  useDisclosure, 
-  ModalContent, 
-  ModalHeader, 
-  ModalBody, 
-  ModalFooter, 
-  Toast
-} from "@heroui/react";
+import { Button,
+  Modal,
+  Input,
+  Textarea,
+  useDisclosure,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  TextArea} from "@heroui/react";
 import { Rocket } from "@gravity-ui/icons";
 import { toast } from "react-toastify";
-
 
 const BookingModal = ({ status }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -29,12 +26,11 @@ const BookingModal = ({ status }) => {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-     
       console.log("Booking Data:", payload);
-      await new Promise((resolve) => setTimeout(resolve, 1000)); 
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      Toast.success("Booking confirmed successfully!");
-      onClose(); 
+      toast.success("Booking confirmed successfully!");
+      onClose();
     } catch (error) {
       toast.error("Failed to confirm booking.");
     } finally {
@@ -44,10 +40,9 @@ const BookingModal = ({ status }) => {
 
   return (
     <>
-     
       <button
         disabled={status !== "Available"}
-        onClick={onOpen} 
+        onClick={onOpen}
         className={`flex-1 px-8 py-4 rounded-2xl font-bold transition-all shadow-lg ${
           status === "Available"
             ? "bg-green-600 text-white hover:bg-green-700 active:scale-95"
@@ -57,11 +52,10 @@ const BookingModal = ({ status }) => {
         {status === "Available" ? "Booking" : "Already Booked"}
       </button>
 
-     
-      <Modal 
-        isOpen={isOpen} 
-        onOpenChange={onOpenChange} 
-        backdrop="blur" 
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        backdrop="blur"
         placement="center"
       >
         <ModalContent>
@@ -96,7 +90,7 @@ const BookingModal = ({ status }) => {
                   variant="bordered"
                   required
                 />
-                <Textarea
+                <TextArea
                   label="Shipping Address"
                   name="address"
                   placeholder="Enter full address"
@@ -109,9 +103,9 @@ const BookingModal = ({ status }) => {
                 <Button color="danger" variant="light" onPress={onClose}>
                   Cancel
                 </Button>
-                <Button 
-                  color="success" 
-                  type="submit" 
+                <Button
+                  color="success"
+                  type="submit"
                   isLoading={loading}
                   className="text-white font-bold"
                 >
