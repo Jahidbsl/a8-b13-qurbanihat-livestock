@@ -13,7 +13,7 @@ import {
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
-import { FaGoogle } from "react-icons/fa"; 
+import { FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 export default function SignInPage() {
@@ -33,39 +33,35 @@ export default function SignInPage() {
     const formData = new FormData(e.currentTarget);
     const Alldata = Object.fromEntries(formData.entries());
 
-    const { data, error } = await authClient.signIn.email({
-      email: Alldata.email,
-      password: Alldata.password,
-      callbackURL: "/",
-    });
+    try {
+      const { data, error } = await authClient.signIn.email({
+        email: Alldata.email,
+        password: Alldata.password,
+        callbackURL: "/",
+      });
 
-    if (error) {
-      toast.error(`SignIn Failed: ${error.message}`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-      return;
-    }
-    if (data) {
-      
-        toast.error(`SignIn Successful!: ${Alldata.email}`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
+      if (error) {
+        toast.error(`SignIn Failed: ${error.message}`, {
+          position: "top-center",
+          autoClose: 5000,
+          theme: "light",
+          transition: Bounce,
+        });
+        return;
+      }
+
+      if (data) {
+        toast.success(`SignIn Successful!: ${Alldata.email}`, {
+          position: "top-center",
+          autoClose: 5000,
+          theme: "light",
+          transition: Bounce,
+        });
+        e.target.reset();
+      }
+    } catch (err) {
+      toast.error("An unexpected error occurred.");
+      console.error(err);
     }
   };
 

@@ -14,7 +14,7 @@ import {
 
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
-import { toast } from "react-toastify";
+import { toast, Bounce } from "react-toastify"; 
 
 export default function SignUpPage() {
   const [userImage, setUserImage] = useState("");
@@ -32,11 +32,14 @@ export default function SignUpPage() {
     }
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const Alldata = Object.fromEntries(formData.entries());
 
+
+const onSubmit = async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.currentTarget);
+  const Alldata = Object.fromEntries(formData.entries());
+
+  try {
     const { data, error } = await authClient.signUp.email({
       email: Alldata.email,
       password: Alldata.password,
@@ -49,11 +52,6 @@ export default function SignUpPage() {
       toast.error(`Registration Failed: ${error.message}`, {
         position: "top-center",
         autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "light",
         transition: Bounce,
       });
@@ -61,19 +59,21 @@ export default function SignUpPage() {
     }
 
     if (data) {
-      toast.error(`Registration Successful for: ${Alldata.fullName}`, {
+      
+      toast.success(`Registration Successful for: ${Alldata.fullName}`, {
         position: "top-center",
         autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "light",
         transition: Bounce,
       });
+      
+     
+      e.target.reset(); 
     }
-  };
+  } catch (err) {
+    toast.error("An unexpected error occurred.");
+  }
+};
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50 py-10">
