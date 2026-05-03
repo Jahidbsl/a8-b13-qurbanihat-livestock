@@ -10,10 +10,12 @@ import {
   ModalContent, 
   ModalHeader, 
   ModalBody, 
-  ModalFooter 
+  ModalFooter, 
+  Toast
 } from "@heroui/react";
 import { Rocket } from "@gravity-ui/icons";
-import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+
 
 const BookingModal = ({ status }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -31,10 +33,10 @@ const BookingModal = ({ status }) => {
       console.log("Booking Data:", payload);
       await new Promise((resolve) => setTimeout(resolve, 1000)); 
 
-      toast.success("Booking confirmed successfully!");
+      ToastContainer.success("Booking confirmed successfully!");
       onClose(); 
     } catch (error) {
-      toast.error("Failed to confirm booking.");
+      Toast.error("Failed to confirm booking.");
     } finally {
       setLoading(false);
     }
