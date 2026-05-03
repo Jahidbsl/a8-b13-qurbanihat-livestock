@@ -2,7 +2,7 @@
 export const getAllAnimalData = async (id) => {
   try {
    
-    const response = await fetch('http://localhost:3000/data.json', {
+    const response = await fetch('data.json', {
         cache: 'no-store' 
     });
 
