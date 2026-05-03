@@ -14,7 +14,7 @@ import {
 
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
-import { toast, Bounce, ToastContainer } from "react-toastify"; 
+import { toast, Bounce, ToastContainer } from "react-toastify";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -33,69 +33,64 @@ export default function SignUpPage() {
     }
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const Alldata = Object.fromEntries(formData.entries());
 
-
-const onSubmit = async (e) => {
-  e.preventDefault();
-  const formData = new FormData(e.currentTarget);
-  const Alldata = Object.fromEntries(formData.entries());
-
-  try {
-    const { data, error } = await authClient.signUp.email({
-      email: Alldata.email,
-      password: Alldata.password,
-      name: Alldata.fullName,
-      image: userImage,
-      callbackURL: "/",
-    });
-
-    if (error) {
-      toast.error(`Registration Failed: ${error.message}`, {
-        position: "top-center",
-        autoClose: 5000,
-        theme: "light",
-        transition: Bounce,
+    try {
+      const { data, error } = await authClient.signUp.email({
+        email: Alldata.email,
+        password: Alldata.password,
+        name: Alldata.fullName,
+        image: userImage,
+        callbackURL: "/",
       });
-      return;
-    }
 
-    if (data) {
-      
-      toast.success(`Registration Successful for: ${Alldata.fullName}`, {
-        position: "top-center",
-        theme: "light",
-        transition: Bounce,
-      });
-      
-     
-      e.target.reset(); 
-
-      setTimeout(() => {
-          router.push("/"); 
-          router.refresh(); 
-        }, 1500); 
+      if (error) {
+        toast.error(`Registration Failed: ${error.message}`, {
+          position: "top-center",
+          autoClose: 5000,
+          theme: "light",
+          transition: Bounce,
+        });
+        return;
       }
-    }
 
-  } catch (err) {
-    toast.error("An unexpected error occurred.");
-  }
-};
+      if (data) {
+        toast.success(`Registration Successful for: ${Alldata.fullName}`, {
+          position: "top-center",
+          theme: "light",
+          transition: Bounce,
+        });
+
+        e.target.reset();
+
+        setTimeout(() => {
+          router.push("/");
+          router.refresh();
+        }, 1500);
+      }
+    } catch (err) {
+      toast.error("An unexpected error occurred.");
+      console.error(err);
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50 py-10">
-       <ToastContainer 
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Form
         className="flex w-full max-w-md flex-col gap-4 bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
         onSubmit={onSubmit}
