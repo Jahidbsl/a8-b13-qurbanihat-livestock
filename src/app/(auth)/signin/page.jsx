@@ -14,7 +14,7 @@ import { Eye, EyeSlash } from "@gravity-ui/icons";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { FaGoogle } from "react-icons/fa";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function SignInPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -67,6 +67,18 @@ export default function SignInPage() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50/50 px-4">
+       <ToastContainer 
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       <div className="w-full max-w-md bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-gray-800">Welcome Back</h1>

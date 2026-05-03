@@ -14,7 +14,7 @@ import {
 
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
-import { toast, Bounce } from "react-toastify"; 
+import { toast, Bounce, ToastContainer } from "react-toastify"; 
 
 export default function SignUpPage() {
   const [userImage, setUserImage] = useState("");
@@ -77,6 +77,18 @@ const onSubmit = async (e) => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50 py-10">
+       <ToastContainer 
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       <Form
         className="flex w-full max-w-md flex-col gap-4 bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
         onSubmit={onSubmit}
