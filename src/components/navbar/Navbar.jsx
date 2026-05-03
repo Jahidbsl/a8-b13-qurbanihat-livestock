@@ -169,7 +169,7 @@ const Navbar = () => {
             <Link
               href="/my_profile"
               onClick={() => setIsMenuOpen(false)}
-              className={`flex w-full p-3 rounded-xl text-base font-semibold no-underline ${isActive("/all-animals") ? "bg-emerald-50 text-emerald-600" : "text-gray-600"}`}
+              className={`flex w-full p-3 rounded-xl text-base font-semibold no-underline ${isActive("/my_profile") ? "bg-emerald-50 text-emerald-600" : "text-gray-600"}`}
             >
               My Profile
             </Link>

@@ -14,6 +14,7 @@ import {
 
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 export default function SignUpPage() {
   const [userImage, setUserImage] = useState("");
@@ -41,16 +42,36 @@ export default function SignUpPage() {
       password: Alldata.password,
       name: Alldata.fullName,
       image: userImage,
-      callbackURL: "/",
+      callbackURL: "/signin",
     });
 
     if (error) {
-      alert(`Registration Failed: ${error.message}`);
+      toast.error(`Registration Failed: ${error.message}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
       return;
     }
 
     if (data) {
-      alert(`Registration Successful for: ${Alldata.fullName}`);
+      toast.error(`Registration Successful for: ${Alldata.fullName}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     }
   };
 
