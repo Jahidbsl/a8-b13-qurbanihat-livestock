@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button,
+import { 
+  Button,
   Modal,
   Input,
-  Textarea,
+  Textarea, // Corrected casing
   useDisclosure,
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter,
-  TextArea} from "@heroui/react";
+  ModalFooter 
+} from "@heroui/react";
 import { Rocket } from "@gravity-ui/icons";
 import { toast } from "react-toastify";
 
@@ -26,6 +27,7 @@ const BookingModal = ({ status }) => {
     const payload = Object.fromEntries(formData.entries());
 
     try {
+      // Simulate API Call
       console.log("Booking Data:", payload);
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -63,7 +65,7 @@ const BookingModal = ({ status }) => {
             <form onSubmit={handleBooking}>
               <ModalHeader className="flex items-center gap-2">
                 <Rocket className="text-green-600" />
-                <span>Confirm Your Purchase</span>
+                <span className="font-bold">Confirm Your Purchase</span>
               </ModalHeader>
 
               <ModalBody className="gap-4">
@@ -90,7 +92,7 @@ const BookingModal = ({ status }) => {
                   variant="bordered"
                   required
                 />
-                <TextArea
+                <Textarea
                   label="Shipping Address"
                   name="address"
                   placeholder="Enter full address"
