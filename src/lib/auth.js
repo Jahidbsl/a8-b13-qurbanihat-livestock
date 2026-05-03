@@ -13,7 +13,7 @@ export const auth = betterAuth({
 
   trustedOrigins: [
     "https://a8-b13-qurbanihat-livestock.vercel.app",
-    "http://localhost:3000",
+   
   ],
 
   emailAndPassword: {
