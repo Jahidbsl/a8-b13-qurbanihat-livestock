@@ -2,6 +2,7 @@
 import { authClient } from '@/lib/auth-client';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
+import { PropagateLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 
 const MyProfilePage = () => {
@@ -25,7 +26,7 @@ const MyProfilePage = () => {
         }
     }, [user]);
 
-    if (isPending) return <div className="p-8 text-center text-indigo-600 font-semibold">Loading Profile...</div>;
+    if (isPending) return <div className="p-8 text-center text-indigo-600 font-semibold"> <PropagateLoader color="#10b981" size={8} /></div>;
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
