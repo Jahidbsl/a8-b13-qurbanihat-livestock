@@ -171,7 +171,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
               className={`flex w-full p-3 rounded-xl text-base font-semibold no-underline ${isActive("/all-animals") ? "bg-emerald-50 text-emerald-600" : "text-gray-600"}`}
             >
-              All Animals
+              My Profile
             </Link>
           </li>
 
