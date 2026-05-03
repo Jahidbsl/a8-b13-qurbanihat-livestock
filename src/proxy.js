@@ -19,5 +19,5 @@ const session = await auth.api.getSession({
 
 
 export const config = {
-  matcher: ["/my_profile", "/all-animals/:path*"],
+  matcher: ["/my_profile", "/all-animals/:path+"],
 };
