@@ -4,16 +4,23 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 const client = new MongoClient(process.env.MONGO_URI);
 
-await client.connect();
 const db = client.db("qurbanihut"); 
 
 export const auth = betterAuth({
-  database: mongodbAdapter(db, {
-    client,
-  }),
+  database: mongodbAdapter(db), 
+  
+ 
+  baseURL: process.env.BETTER_AUTH_URL,
+  
+  trustedOrigins: [
+    "https://a8-b13-qurbanihat-livestock.vercel.app",
+    "http://localhost:3000"
+  ],
+
   emailAndPassword: {
     enabled: true,
   },
+  
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
