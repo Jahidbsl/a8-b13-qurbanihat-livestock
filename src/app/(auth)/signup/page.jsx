@@ -17,6 +17,7 @@ import { authClient } from "@/lib/auth-client";
 import { toast, Bounce, ToastContainer } from "react-toastify"; 
 
 export default function SignUpPage() {
+  const router = useRouter();
   const [userImage, setUserImage] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [password, setPassword] = useState("");
@@ -68,7 +69,14 @@ const onSubmit = async (e) => {
       
      
       e.target.reset(); 
+
+      setTimeout(() => {
+          router.push("/"); 
+          router.refresh(); 
+        }, 1500); 
+      }
     }
+
   } catch (err) {
     toast.error("An unexpected error occurred.");
   }
