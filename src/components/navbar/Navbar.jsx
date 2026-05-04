@@ -5,6 +5,8 @@ import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { PropagateLoader } from "react-spinners";
+import Lottie from "lottie-react";
+import yearOx from "@/assets/Year of the Ox.json";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,10 +89,9 @@ const Navbar = () => {
             >
               All Animals
             </Link>
-          
           </li>
           <li>
-               <Link
+            <Link
               href="/my_profile"
               className={`text-md font-semibold transition-colors no-underline ${isActive("/my_profile") ? "text-emerald-600" : "text-gray-600 hover:text-emerald-500"}`}
             >
@@ -102,8 +103,12 @@ const Navbar = () => {
         {/* Right Side: User Profile / Loading / Login */}
         <div className="flex items-center gap-3">
           {isPending ? (
-            <div className="flex items-center justify-center min-w-[100px]">
-              <PropagateLoader color="#10b981" size={8} />
+            <div className="flex items-center justify-center w-30 h-30 overflow-hidden">
+              <Lottie
+                animationData={yearOx}
+                loop={true}
+                className="w-full h-full object-contain"
+              />
             </div>
           ) : user ? (
             <div className="flex items-center gap-3">
@@ -127,8 +132,6 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex items-center gap-2">
-        
-
               <Link
                 href="/signin"
                 className="bg-emerald-600 text-white no-underline hover:bg-emerald-700 px-6 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-emerald-100 active:scale-95"
@@ -165,7 +168,7 @@ const Navbar = () => {
               All Animals
             </Link>
           </li>
-             <li>
+          <li>
             <Link
               href="/my_profile"
               onClick={() => setIsMenuOpen(false)}
@@ -174,8 +177,6 @@ const Navbar = () => {
               My Profile
             </Link>
           </li>
-
-       
 
           {user && (
             <li className="mt-2 pt-2 border-t border-gray-100">

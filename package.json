@@ -15,6 +15,7 @@
     "@heroui/styles": "^3.0.3",
     "@iconify-json/gravity-ui": "^1.2.12",
     "better-auth": "^1.6.9",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^1.14.0",
     "mongodb": "^7.2.0",
     "next": "16.2.4",
