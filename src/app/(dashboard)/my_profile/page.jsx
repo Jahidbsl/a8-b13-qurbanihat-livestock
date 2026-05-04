@@ -1,9 +1,11 @@
 "use client";
 import { authClient } from '@/lib/auth-client';
+import Lottie from 'lottie-react';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { PropagateLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
+import yearOx from "@/assets/Year of the Ox.json";
 
 const MyProfilePage = () => {
     const { data: session, isPending } = authClient.useSession();
@@ -26,7 +28,14 @@ const MyProfilePage = () => {
         }
     }, [user]);
 
-    if (isPending) return <div className="p-8 text-center text-indigo-600 font-semibold"> <PropagateLoader color="#10b981" size={8} /></div>;
+    if (isPending) return  <div className="flex flex-col items-center justify-center min-h-[60vh]">
+        <div className="w-48 h-48">
+          <Lottie animationData={yearOx} loop={true} />
+        </div>
+        <p className="text-emerald-600 font-bold animate-pulse tracking-widest uppercase text-sm">
+          Preparing Livestock...
+        </p>
+      </div>;
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];

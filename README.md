@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐄 QurbaniHat Livestock
+### A Modern Livestock Marketplace built with Next.js 15
 
-## Getting Started
+[![Live Demo](https://img.shields.io/badge/Live-Demo-059669?style=for-the-badge&logo=vercel)](https://a8-b13-qurbanihat-livestock.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![HeroUI](https://img.shields.io/badge/UI-HeroUI-FF4F81?style=for-the-badge)](https://heroui.com/)
 
-First, run the development server:
+**QurbaniHat** is a premium digital marketplace designed to simplify the purchase of livestock for Qurbani. Built with a focus on high performance and exceptional user experience, this platform bridges the gap between traditional cattle markets and modern digital convenience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Key Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **⚡ High-Performance UI:** Built with **Next.js 15** and **HeroUI** for a sleek, glassmorphic, and ultra-responsive interface.
+- **🔒 Secure Authentication:** Integrated with **Better Auth** for robust user management and secure session handling.
+- **🎨 Interactive Animations:** Uses **Lottie React** for lightweight, engaging livestock animations and smooth loaders.
+- **📊 Advanced Filtering:** Real-time sorting and filtering of livestock by price, weight, and category.
+- **🔔 Real-time Feedback:** **React Toastify** integration for instant, non-intrusive user notifications.
+- **📱 Mobile First:** Fully optimized for all screen sizes using **Tailwind CSS**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js 15 (App Router)](https://nextjs.org/)
+- **UI Components:** [HeroUI](https://heroui.com/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Auth:** [Better Auth](https://www.better-auth.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Animations:** [Lottie React](https://lottie-react.js.org/)
+- **Toast:** [React Toastify](https://fkhadra.github.io/react-toastify/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Installation & Setup
 
-## Deploy on Vercel
+Follow these steps to run the project locally:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/jahidhasan-dev/qurbanihat-livestock.git](https://github.com/jahidhasan-dev/qurbanihat-livestock.git)
